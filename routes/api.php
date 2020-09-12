@@ -20,3 +20,5 @@ use Illuminate\Support\Facades\Route;
 });*/
 
 Route::resource('articles', 'ArticleController');
+
+Route::post('register', 'Auth\RegisterController@register');
