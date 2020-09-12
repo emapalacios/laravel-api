@@ -19,7 +19,10 @@ use Illuminate\Support\Facades\Route;
     return $request->user();
 });*/
 
-Route::resource('articles', 'ArticleController');
+Route::group(['middleware' => 'auth:api'], function () {
+    Route::resource('articles', 'ArticleController');
+});
 
 Route::post('register', 'Auth\RegisterController@register');
 Route::post('login', 'Auth\LoginController@login');
+Route::post('logout', 'Auth\LoginController@logout');
